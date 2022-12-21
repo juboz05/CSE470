@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebApplication1.Models.book>
+
+@{
+    ViewData["Title"] = "catalogue";
+}
+@{Layout = "~/Views/Shared/_Layout1.cshtml";}
+
+
+<h1>catalogue</h1>
+
+
+<div class="container-fluid">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        @item.title
+                    </div>
+                    <div class="card-body">
+                        <img src="~/images/@item.imgfile" height="150" /> <br />
+                        price:@item.price
+                    </div>
+                    <div class="card-footer">
+                        <a asp-controller="orders" asp-action="Create" asp-route-id="@item.Id">Buy</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Models;
+
+namespace WebApplication1.Data
+{
+    public class WebApplication1Context : DbContext
+    {
+        public WebApplication1Context (DbContextOptions<WebApplication1Context> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<WebApplication1.Models.book> book { get; set; } = default!;
+
+        public DbSet<WebApplication1.Models.usersaccounts> usersaccounts { get; set; }
+
+        public DbSet<WebApplication1.Models.orders> Orders { get; set; }
+
+        public DbSet<WebApplication1.Models.report> report { get; set; }
+
+    }
+}
